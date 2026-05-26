@@ -1,0 +1,78 @@
+#include <stdio.h>
+
+int main() {
+    float celsius, fahrenheit, kelvin;
+    int choice;
+    
+    printf("==========================================\n");
+    printf("       TEMPERATURE CONVERTER PROGRAM     \n");
+    printf("==========================================\n\n");
+    
+    printf("Select conversion type:\n");
+    printf("1. Celsius to Fahrenheit\n");
+    printf("2. Fahrenheit to Celsius\n");
+    printf("3. Celsius to Kelvin\n");
+    printf("4. Kelvin to Celsius\n");
+    printf("5. Fahrenheit to Kelvin\n");
+    printf("6. Kelvin to Fahrenheit\n");
+    printf("Enter your choice (1-6): ");
+    scanf("%d", &choice);
+    
+    switch(choice) {
+        case 1:
+            printf("Enter temperature in Celsius: ");
+            scanf("%f", &celsius);
+            fahrenheit = (celsius * 9.0/5.0) + 32;
+            printf("%.2f°C = %.2f°F\n", celsius, fahrenheit);
+            break;
+            
+        case 2:
+            printf("Enter temperature in Fahrenheit: ");
+            scanf("%f", &fahrenheit);
+            celsius = (fahrenheit - 32) * 5.0/9.0;
+            printf("%.2f°F = %.2f°C\n", fahrenheit, celsius);
+            break;
+            
+        case 3:
+            printf("Enter temperature in Celsius: ");
+            scanf("%f", &celsius);
+            kelvin = celsius + 273.15;
+            printf("%.2f°C = %.2fK\n", celsius, kelvin);
+            break;
+            
+        case 4:
+            printf("Enter temperature in Kelvin: ");
+            scanf("%f", &kelvin);
+            if (kelvin < 0) {
+                printf("Error: Temperature cannot be below absolute zero!\n");
+            } else {
+                celsius = kelvin - 273.15;
+                printf("%.2fK = %.2f°C\n", kelvin, celsius);
+            }
+            break;
+            
+        case 5:
+            printf("Enter temperature in Fahrenheit: ");
+            scanf("%f", &fahrenheit);
+            kelvin = (fahrenheit - 32) * 5.0/9.0 + 273.15;
+            printf("%.2f°F = %.2fK\n", fahrenheit, kelvin);
+            break;
+            
+        case 6:
+            printf("Enter temperature in Kelvin: ");
+            scanf("%f", &kelvin);
+            if (kelvin < 0) {
+                printf("Error: Temperature cannot be below absolute zero!\n");
+            } else {
+                fahrenheit = (kelvin - 273.15) * 9.0/5.0 + 32;
+                printf("%.2fK = %.2f°F\n", kelvin, fahrenheit);
+            }
+            break;
+            
+        default:
+            printf("Invalid choice! Please run the program again.\n");
+            break;
+    }
+    
+    return 0;
+}
